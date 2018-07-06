@@ -1,0 +1,46 @@
+page {
+    background: #fff;
+}
+
+.p {
+    text-align: center;
+    font-size: 28rpx;
+    background: #fff;
+    padding: 100rpx 0 0;
+    border-radius: 4rpx;
+}
+.okinfo{
+    font-size:44rpx;
+    margin:20rpx 0;
+    font-weight:800;
+    color:#555;
+}
+.ico {
+    font-size: 80rpx;
+    width: 130rpx;
+    height: 130rpx;
+    background: #0ec695;
+    color: #fff;
+    border-radius: 90px;
+    line-height: 130rpx;
+    margin: 0 auto 10rpx;
+}
+
+.price {
+    color: #ff6d50;
+    font-size: 55rpx;
+    margin-top:30rpx;
+    font-weight: 800;
+}
+
+.button {
+    margin: 90rpx 50rpx;
+}
+
+.btn-hover {
+    background: #f2f2f2;
+}
+.total{
+    text-decoration:line-through;
+    color:#666;
+}

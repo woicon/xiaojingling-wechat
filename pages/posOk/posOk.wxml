@@ -1,0 +1,9 @@
+<!--pages/payPlat/payPlat.wxml-->
+<import src="../../pages/temp/loading.wxml" />
+<view class='p'>
+    <view class='ico icon-money'></view>
+    <view class='okinfo'>收款成功</view>
+    <view class='price'>¥{{detail.realAmt}}</view>
+    <view class='total' wx:if="{{detail.payDetail.adjustAmt != 0}}">¥{{detail.totalAmt}}</view>
+    <view class='button' hover-class='button-touch' bindtap='goDetail'>查看订单详情</view>
+</view>

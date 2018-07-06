@@ -1,0 +1,35 @@
+/* components/tab/tab.wxss */
+.footbar {
+    position: fixed;
+    text-align: center;
+    bottom: 200rpx;
+    left: 0;
+    right: 0;
+    background: #fafafa;
+    padding: 12rpx 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footbar .icon {
+    font-size: 48rpx;
+    margin: 10rpx 0;
+}
+
+.footbar .tabbar-item {
+    width: 33.333333%;
+    font-size: 12px;
+    color: #777;
+    transition: 0.4s;
+}
+
+.footer-hover {
+    color: #ff2828;
+    opacity: 0.8;
+}
+
+.footbar .active {
+    color:#0ec695;
+}

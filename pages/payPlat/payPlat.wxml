@@ -1,0 +1,43 @@
+<!--pages/payPlat/payPlat.wxml-->
+<import src="../../pages/temp/loading.wxml" />
+
+<view wx:if="{{isPageLoad}}" class='flex-c-c'>
+    <template is="bottomloading" />
+</view>
+<block wx:else>
+    <view class='plat-list'>
+        <view wx:for="{{plat}}" wx:key="plat" class='plat'>
+            <view class='f-c-b'>
+                <view class='f-c f-name'>
+                    <view wx:if="{{item.platformType == 2}}" class='ico icon-weixin'>
+
+                    </view>
+                    <view wx:if="{{item.platformType == 8}}" class='ico icon-weixin'>
+
+                    </view>
+                    <view wx:if="{{item.platformType == 7}}" class='ico icon-alipay'>
+
+                    </view>
+                    <view wx:if="{{item.platformType == 3}}" class='ico icon-alipay'>
+
+                    </view>
+                    <view wx:if="{{item.platformType == 4}}" class='ico icon-weixin'>
+
+                    </view>
+                    <view wx:if="{{item.platformType == 6}}" class='ico icon-alipay'>
+
+                    </view>
+
+                    <view wx:elif="{{item.platformType == 1}}" class='ico icon-alipay'>
+
+                    </view>
+                    <text>{{item.platformName}}</text>
+                </view>
+                <view class='c-rate'>{{item.rate}}</view>
+            </view>
+            <view class='f-c-b f-bottom'>结算方式
+                <text>自动结算</text>
+            </view>
+        </view>
+    </view>
+</block>

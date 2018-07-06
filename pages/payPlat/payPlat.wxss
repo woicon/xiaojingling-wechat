@@ -1,0 +1,31 @@
+.plat{
+
+    background:#fff;
+    padding:50rpx 40rpx;
+    position:relative;
+    margin:40rpx;
+    box-shadow: 0 30rpx 40rpx rgba(90, 90, 90, .1);
+}
+.plat-list{
+    padding-bottom:40rpx;
+}
+.f-name{
+    font-size:32rpx;
+    color:#444;
+}
+.ico{
+    font-size:44rpx;
+    margin-right:20rpx;
+}
+.f-bottom{
+    padding-top:80rpx;
+    font-size:28rpx;
+    color:#888;
+}
+.f-bottom text{
+    color:#444;
+}
+.c-rate{
+    font-weight:800;
+    color:#444;
+}

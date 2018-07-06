@@ -1,0 +1,42 @@
+.as{
+ display: flex;
+ flex-direction: column;
+ align-items:center;
+ justify-content:center;   
+ text-align:center;
+ padding:0 0;
+margin-bottom:50rpx;
+ color:#444;
+}
+.a{
+    margin:20% 50rpx 0;
+    background:#fff;
+    box-shadow:0 30px 80px rgba(120, 120, 120, .2);
+    border-radius:6px;
+    animation:sliderUp .4s ease-in both;
+}
+.ico{
+    font-size:120rpx;
+    color:#0ec695;
+    margin-bottom:24rpx;
+     margin-top:-60rpx;
+     background:#fff;
+     border-radius:900px;
+     border:2px solid #fff;
+}
+
+.info>view{
+    padding:32rpx 40rpx;
+    display: flex;
+    justify-content:space-between;
+    font-size:28rpx;
+    background:transparent;
+    color:#888;
+}
+.info>view text{
+    font-weight:700;
+    font-size:30rpx;
+    color:#444;
+    width:400rpx;
+    text-align:right;
+}

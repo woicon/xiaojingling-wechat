@@ -1,0 +1,38 @@
+<import src="../../pages/temp/tabBar.wxml" />
+<import src="../../pages/temp/loading.wxml" />
+<import src="../../pages/temp/report.wxml" />
+<import src="../../pages/temp/login.wxml" />
+<import src="../../pages/temp/member.wxml" />
+<import src="../../pages/temp/order.wxml" />
+
+<block wx:if="{{isLogin}}">
+    <template is="login" data="{{prossLogin:prossLogin,focus:focus,loginDisable:loginDisable}}" />
+</block>
+
+<block wx:elif="{{page === 'report'}}">
+    <view class='report-head'>
+        <view class='tab'>
+            <view wx:for="{{['昨日','今日','其他']}}" bindtap='toggleReport' wx:key="reportTab" class='{{reportTab == index ? "active":""}}' data-index="{{index}}">{{item}}</view>
+        </view>
+        <view class='datebar' bindtap='stepDate'>
+            <view wx:if="{{!disPrv}}" class='ico prev' id='prev'></view>
+            <view class='datevalue'> {{searchDates || reportDate}} </view>
+            <view wx:if="{{!disNext}}" class='ico next' id="next"></view>
+        </view>
+    </view>
+
+    <template is="report" data="{{...report,member:member,page:page,isPX:isPX,isPageLoad:isPageLoad,store:store,selStore:selStore}}" />
+</block>
+
+<block wx:elif="{{page == 'orders'}}">
+    <template is="order" data="{{...order,orderIsBottm:orderIsBottm,orderHasMore:orderHasMore,payStatus:payStatus,isPageLoad:isPageLoad,payType:payType,isPX:isPX,payStatusSel:payStatusSel,payTypeSel:payTypeSel,orderLoading:orderLoading,cancelSearch:cancelSearch,searchValue:searchValue,searchTop:searchTop,showSearch:showSearch}}"
+    />
+</block>
+
+<block wx:elif="{{page === 'member'}}">
+    <template is="member" data="{{userInfo:userInfo,member:member,isCore:isCore}}" />
+</block>
+
+<block wx:if="{{!isLogin}}">
+    <template is="tabBar" data="{{tabBar:tabBar,isPX:isPX,tabCurr:tabCurr}}"></template>
+</block>

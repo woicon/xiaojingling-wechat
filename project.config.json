@@ -1,0 +1,121 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wxea7c589ca4c29bd4",
+	"projectname": "%E6%94%B6%E6%AC%BE%E5%B0%8F%E7%B2%BE%E7%81%B5",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "apply",
+					"pathName": "pages/apply/apply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "applyindex",
+					"pathName": "pages/applyIndex/applyIndex",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "chooseTime",
+					"pathName": "pages/reportDate/reportDate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "POS",
+					"pathName": "pages/pos/pos",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "web",
+					"pathName": "pages/web/web",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "detail",
+					"pathName": "pages/orderDetail/orderDetail",
+					"query": "isRef=true&refundStatus=3"
+				},
+				{
+					"id": -1,
+					"name": "payPlat",
+					"pathName": "pages/payPlat/payPlat",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "payPlat",
+					"pathName": "pages/agent/agent",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "refund",
+					"pathName": "pages/refund/refund",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "payok",
+					"pathName": "pages/posOk/posOk",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "posOK",
+					"pathName": "pages/posOK/posOK",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "posOk",
+					"pathName": "pages/posOk/posOk",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "posOk",
+					"pathName": "pages/posOk/posOk",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "desk",
+					"pathName": "pages/desk/desk",
+					"query": ""
+				}
+			]
+		}
+	}
+}

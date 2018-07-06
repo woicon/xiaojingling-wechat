@@ -1,0 +1,16 @@
+<!--components/tab/tab.wxml-->
+ <view class="footbar {{isPX?'pxview':''}}">
+    <block wx:for="{{tabBar}}" wx:key="pagetab">
+        <view 
+        data-url="{{item.link}}"
+        class="tabbar-item {{tabCurr == index ?'active':''}}"
+        hover-class="footer-hover"
+        data-id="{{index}}"
+        data-name="{{item.icon}}"
+        data-title="{{item.name}}"
+        bindtap='{{tabCurr == index ? "" : "toggleTab"}}'>
+            <view class="icon icon-{{tabCurr == index?item.icon+'-s':item.icon}}"></view>
+            {{item.name}}
+        </view>
+    </block>
+  </view>

@@ -1,0 +1,2 @@
+@import "../../pages/temp/order.wxss";
+.scroll-order{bottom:0 !important;}

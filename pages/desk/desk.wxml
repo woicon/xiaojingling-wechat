@@ -1,0 +1,48 @@
+<import src="../../pages/temp/loading.wxml" />
+<view id='widths' style="width:29.3333333%"></view>
+<view wx:if="{{isPageLoad}}" class='flex-c-c'>
+    <template is="bottomloading" />
+</view>
+
+<view wx:elif="{{isEmpty}}" class='empty'>
+    <view class='ico icon-setting'></view>
+    <view class='txt'>未设置桌码</view>
+</view>
+
+<block wx:else>
+    <scroll-view scroll-y class='cat-scroll' wx:if="{{showCat}}">
+        <view bindtap='toggleDesk' class='bline cat-item {{currentCat == item.pid ? "cat-active":""}}' hover-class='cat-touch' wx:for="{{category}}" data-id="{{index}}" wx:key="category" id="{{item.pid}}">{{item.pName}}
+            <view wx:if="{{currentCat == item.pid}}" class='icon-ok'> </view>
+        </view>
+    </scroll-view>
+    <view bindtap='chooseRect' class='desk-rect {{showCat?"desk-open":""}}'>区域：{{category[catId].pName || category[0].pName}}</view>
+
+    <scroll-view scroll-y class='desk-scroll'>
+        <view class='desk'>
+            <view class='desk-item {{item.status == 0 ? "disable" : ""}}' data-no="{{item.id}}" data-name="{{item.name}}" data-catid="{{item.pid}}" data-status="{{item.status}}" data-index="{{index}}" bindtap='bindCode' hover-class='desk-touch' wx:key="deskint" wx:for="{{desk}}"
+                wx:if="{{item.pid == currentCat}}" style='height:{{ deskHeight *2}}rpx'>
+                <view class='desk-name'>{{item.name}}</view>
+                <text>{{item.status == 0?"未绑码":"已绑定"}}</text>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class='desk-panel' wx:if="{{bindStatus}}">
+        <view class='desk-window'>
+            <view class='bline'>
+                <view class='desk-area bline'>
+                    <view>区域：{{desk[currentIndex].pName}}</view>
+                    <view>{{desk[currentIndex].name}}</view>
+                </view>
+                <view class='desk-code'>
+                    桌码
+                    <view class="desk-no" wx:for="{{info}}" wx:key="deskInfo">{{item}}</view>
+                </view>
+            </view>
+            <view class='desk-bar'>
+                <view class='rline' hover-class="btn-touch" bindtap='closeInfo'>关闭</view>
+                <view class='btn' hover-class='button-touch' bindtap='bindAgain'>再次绑定</view>
+            </view>
+        </view>
+    </view>
+</block>

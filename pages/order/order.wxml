@@ -1,0 +1,2 @@
+<import src="../../pages/temp/order.wxml" />
+<template is="order" data="{{...order,orderIsBottm:orderIsBottm,orderHasMore:orderHasMore,payStatus:payStatus,isPageLoad:isPageLoad,payType:payType,isPX:isPX,payStatusSel:payStatusSel,payTypeSel:payTypeSel,orderLoading:orderLoading,cancelSearch:cancelSearch,searchValue:searchValue,searchTop:searchTop,showSearch:showSearch}}" />

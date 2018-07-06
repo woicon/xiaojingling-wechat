@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "tabBar": "../../components/tab/tab",
+        "report": "../../components/report/report",
+        "pay": "../../components/pay/pay",
+        "detail": "../../components/reportDetail/detail"
+    },
+    "disableScroll": true
+}

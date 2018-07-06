@@ -1,0 +1,32 @@
+<import src="../../pages/temp/loading.wxml" />
+<template name="login">
+    <form bindsubmit="loginSi" bindreset="formReset">
+        <view class="login-page">
+            <!-- <view class='login-logo icon-logos'>
+                <text>收款小精灵</text>
+            </view> -->
+            <view class='logo-img'>
+                <image mode="aspectFit" src='../../pages/images/logo.png'></image>
+            </view>
+            <view class="login">
+                <view bindtap='focusInput' data-index="0" class='{{focus==0?"focus":""}}'>
+                    <view class='ico icon-user'></view>
+                    <input type="text" bindinput='loginInput'  name="loginName" id="loginName" bindblur='loginBlur' placeholder="用户名"  confirm-type='next'/>
+                </view>
+                <view bindtap='focusInput' data-index="1" class='{{focus==1?"focus":""}}'>
+                    <view class='ico icon-lock'></view>
+                    <input type="password" bindinput='loginInput' name="password" id="password" bindblur='loginBlur' placeholder="密码" />
+                </view>
+            </view>
+            <view class="button-group">
+                 <button class="button {{loginDisable?'button-disable':''}}" formType="submit" hover-class='{{loginDisable?"":"button-touch"}}'>
+                    <block wx:if="{{prossLogin}}">
+                        <template is="bottomloading" />
+                    </block>
+                    <block wx:else>登录</block>
+                </button>
+                <!-- <button class='getuserinfo' >1</button> -->
+            </view>
+        </view>
+    </form>
+</template>

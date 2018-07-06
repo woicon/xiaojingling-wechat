@@ -1,0 +1,22 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/orderDetail/orderDetail",
+        "pages/pos/pos",
+        "pages/order/order",
+        "pages/payPlat/payPlat",
+        "pages/reportDate/reportDate",
+        "pages/agent/agent",
+        "pages/refund/refund",
+        "pages/posOk/posOk",
+        "pages/desk/desk",
+        "pages/help/help"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#0ec695",
+        "navigationBarTitleText": "收款小精灵",
+        "navigationBarTextStyle": "white",
+        "backgroundColor":"#fafafa"
+    }
+}

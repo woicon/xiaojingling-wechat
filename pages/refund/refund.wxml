@@ -1,0 +1,114 @@
+<view class='d'>
+    <view class='retype'>
+        <block wx:if="{{detail.receiveMethod == 1}}">
+            <view class='ico icon-pos'></view>
+        </block>
+        <block wx:elif="{{detail.receiveMethod == 2}}">
+            <view class='ico bank icon-card'></view>
+        </block>
+        <block wx:elif="{{detail.receiveMethod == 4}}">
+            <view class='ico alipay icon-alipay'></view>
+        </block>
+        <block wx:elif="{{detail.receiveMethod == 5}}">
+            <view class='ico weixin icon-weixin'></view>
+        </block>
+        <block wx:elif="{{detail.receiveMethod == 6}}">
+            <view class='ico vip icon-vip'></view>
+        </block>
+        <block wx:elif="{{detail.receiveMethod == 7}}">
+            <view class='ico redbag icon-redbag'></view>
+        </block>
+        <block wx:elif="{{detail.receiveMethod == 9}}">
+            <view class='ico redbag icon-pos'></view>
+        </block>
+
+        <view class='d-name'>
+            {{detail.receiveMethodCn ? detail.receiveMethodCn+'支付': detail.receiveMethodName}}
+        </view>
+    </view>
+    <view class='re bline'>
+        <view class='refamt'>
+            <input type="digit" bindinput='refInput' value='{{refAmt}}' placeholder='输入退款金额'></input>
+        </view>
+        <!-- {{preAmt}} -->
+        <view bindtap='refundAll' class='refall' hover-class='refall-touch'>全部退款</view>
+    </view>
+    <view class='rmk' bindtap='selectMrk'>
+        <view class='rmk-title'>
+            备注</view>
+        <view class='rmk-value'>{{selMrk}}</view>
+    </view>
+    <view class='d-list'>
+
+        <!-- <view class='bline'> 订单金额
+            <view class='value'>¥{{detail.totalAmt}}</view>
+        </view>
+         <view class='bline'>交易时间
+            <view class='value'>{{detail.gmtCreated}}</view>
+        </view> -->
+        <view class='bline'>交易状态
+            <view wx:if="{{ detail.approveStatus ==6}}" class='value'>已退款</view>
+            <view class='value' wx:else>{{detail.statusCn || detail.statusName}}</view>
+        </view>
+
+        <view class='bline' id="{{detail.orderNo}}" bindtap='clipOrderNo'>订单编号
+            <view class='value d-no'>
+                <text>{{detail.orderNo}}</text>
+            </view>
+        </view>
+
+    </view>
+    <view class='button-group'>
+        <view wx:if="{{detail.status == 0}}" class='button  button-red f-c-c checkbtn' bindtap='goRefund'>
+            确定退款
+        </view>
+    </view>
+</view>
+
+<view class='ma-form' wx:if="{{checkMa}}">
+    <view class="ma-warp">
+        <view class='ma-title'>店长审批
+            <view class='title-sub'>此操作需要店长审批</view>
+        </view>
+        <form bindsubmit='refundReq'>
+            <view>
+                <input placeholder='管理员账号' name="managerLoginName" type='text' value='{{refKey?refKey.managerLoginName:""}}'></input>
+            </view>
+            <view>
+                <input placeholder='密码' name="managerPassword" value='{{refKey?refKey.managerPassword:""}}' type='password'></input>
+            </view>
+            <view wx:if="{{userType == 1 || userType == 4}}" class='checkbox {{savePwd?"checked":""}}' bindtap='togglePwd'>
+                <view class='check-ico'></view>
+                <view>
+                    <view>记住退款密码</view>
+                    <view>
+                        <text>风险提示：下次退款无需输入密码</text>
+                    </view>
+                </view>
+            </view>
+            <view class='button-groups'>
+                <button class='button button-grey' hover-class='button-grey-touch' bindtap='hideMa'>取消</button>
+                <button class='button' form-type="submit">确定</button>
+            </view>
+        </form>
+    </view>
+</view>
+
+
+<view class='mrk' wx:if="{{mrk}}">
+    <view class='mrk-warp'>
+        <view class='mrk-list' bindtap='selMrk'>
+            <view wx:for="{{mrkList}}" wx:key="mrklist" data-tag="{{item}}" data-index="{{index}}" class='mrk-item {{mrkToggle[index]?"mrk-active":""}}'>
+                {{item}}
+                <view class='check-ico'></view>
+            </view>
+        </view>
+        <view class='mrk-add'>
+            <input class='mrk-text' maxlength='99' bindinput='mrkInput' value='{{newMrk}}' placeholder='输入备注'></input>
+            <view bindtap='addMrk' class='add-btn'>
+                <text> 添加</text>
+            </view>
+        </view>
+        <button class='button' bindtap='mrkSubmit'>确定</button>
+    </view>
+</view>

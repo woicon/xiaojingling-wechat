@@ -1,0 +1,22 @@
+<!--pages/payPlat/payPlat.wxml-->
+<import src="../../pages/temp/loading.wxml" />
+<view wx:if="{{isPageLoad}}" class='flex-c-c'>
+    <template is="bottomloading" />
+</view>
+<block wx:else>
+    <view class='a'>
+        <view class='as'>
+            <view class='ico icon-users-sel'></view>
+            <view>{{agent.agentFullName}}</view>
+        </view>
+
+        <view class='info'>
+            <view class='bline'> 代理商地址
+                <text>{{agent.address}}</text>
+            </view>
+            <view> 联系电话
+                <text>{{agent.contactPhone}}</text>
+            </view>
+        </view>
+    </view>
+</block>
