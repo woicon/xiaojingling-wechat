@@ -5,7 +5,7 @@
     </view>
     <block wx:else>
         <block wx:if="{{order}}">
-            <view class='o-summary'>
+            <view class='o-summary' wx:if="{{userType != 5}}">
                 <view class='rline'> 今日订单总金额
                     <view class='os-value'>{{summarys[0].todayTotalAmt}}</view>
                 </view>
@@ -16,7 +16,7 @@
                     <view class='os-value'>{{summarys[0].todayRealAmt}}</view>
                 </view>
             </view>
-            <view class='o-search {{showSearch? "o-search-show":""}} bline' >
+            <view class='o-search {{showSearch? "o-search-show":""}} bline' style='{{summary || userType == 5?"top:0":""}}'>
                 <view class='ico icon-search'></view>
                 <view class='o-input'>
                     <input bindconfirm='searchOrder' placeholder='输入订单号搜索' value='{{searchValue}}' bindblur='searchBlur' bindinput='searchInput' bindfocus="searchFocus" confirm-type="search"></input>
@@ -40,7 +40,7 @@
             <view bindtap='toggleSearch' class='ico icon-search' hover-class='bar-touch'></view>
         </view>
 
-        <scroll-view class='scroll-order {{isPX?"pxScroll":""}}' scroll-y bindscrolltolower="moreOrder" style='{{summary?"top:90rpx":""}}'>
+        <scroll-view class='scroll-order {{isPX?"pxScroll":""}}' scroll-y bindscrolltolower="moreOrder" style='{{summary || userType == 5?"top:90rpx":""}}'>
             <block wx:if="{{orderLoading}}">
                 <view class='empty'>
                     <template is="bottomloading" />

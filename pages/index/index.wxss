@@ -120,7 +120,19 @@ page {
     border: none;
     width: 100%;
 }
-
+.input-clear{
+    color:#ccc;
+    font-size:32rpx;
+    width:90rpx;
+    height:90rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.4s;
+}
+.input-clear-touch{
+    color:#888;
+}
 /* //retport */
 
 .r {

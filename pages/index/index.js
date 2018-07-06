@@ -125,10 +125,15 @@ Page({
             focus: e.currentTarget.dataset.index
         })
     },
-    loginBlur: function() {
-        this.setData({
-            focus: null
-        })
+    loginFocus:function(e){
+        console.log(e)
+    },
+    loginBlur: function(e) {
+        if (e.detail.value == '') {
+            this.setData({
+                isEmpty: e.target.id
+            })
+        }   
     },
 
     resReport: function(date) {
@@ -176,7 +181,9 @@ Page({
                     page: bar[currPage].icon,
                     member: loginData,
                     tabBar: tab,
-                    isCore: isCore
+                    userType: wx.getStorageSync("userType"),
+                    isCore: isCore,
+                    version: app.globalData.version
                 })
                 switch (currPage) {
                     case 0: //报表
@@ -494,20 +501,6 @@ Page({
             this.LoginError()
         }
     },
-    // getOrdersSummary: function() {
-    //     let parmas = {
-    //         merchantId: app.member("merchantId"),
-    //         codeName: app.member("codeName"),
-    //         departmentNo: app.member("departmentNo"),
-    //         page: 1,
-    //         pageNum: 1,
-    //         merchantNo: app.member("merchantNo")
-    //     }
-    //     return api.getOrdersTittleSummary(parmas)
-    //         .then(res => {
-    //             console.log(res)
-    //         })
-    // },
     //获取订单
     getOrder: function(arg, isSearch) {
         let that = this
@@ -523,14 +516,15 @@ Page({
         }
 
         const parmas = isSearch ? orderParmas : Object.assign(orderParmas, this.data.tempOrderParmas)
-        if (this.member("identity") == 5) {
+
+        if (app.member("identity") == 5) {
             parmas.cashierNo = that.member("jobNumber")
         }
         if (typeof arg == "boolean") {
             parmas.pageNo = that.data.order.order.pageNo + 1
-        }else{
+        } else {
             this.setData({
-                orderLoading:true
+                orderLoading: true
             })
         }
 
@@ -539,9 +533,11 @@ Page({
         if (wx.getStorageSync("isCore")) {
             this.getOrdersTittleSummary()
         } else {
-            this.getOrdersTittleSummary({
-                departmentNo: this.member("departmentNo")
-            })
+            if (app.member("identity") != 5) {
+                this.getOrdersTittleSummary({
+                    departmentNo: this.member("departmentNo")
+                })
+            }
             let order = this.data.order
             api.getOrder(parmas).then((res) => {
                 console.log("order:::", res)
@@ -563,8 +559,7 @@ Page({
                             orderLoading: false
                         })
                     }
-                } else if (res.data.code == "000103" && res.data.obj.orderList == null) {
-                    console.log("fs")
+                } else if (res.data.code == "000103" && res.data.obj.orderList == null && isSearch) {
                     order.order = res.data.obj
                     this.setData({
                         order: order,
@@ -575,7 +570,7 @@ Page({
                     if (arg) {
                         this.setData({
                             orderHasMore: false,
-                            orderLoading:false
+                            orderLoading: false
                         })
                     }
                 }
@@ -662,7 +657,7 @@ Page({
     },
 
     getOrdersTittleSummary: function(arg) {
-        const args = arg ||  {}
+        const args = arg || {}
         let order = this.data.order
         const parmas = {
             merchantId: this.member("merchantId"),
@@ -681,14 +676,14 @@ Page({
             let summaryList = res.data.obj.tittleSummaryList
             if (!args.isMore) {
                 order.page = 1
-                if (args.departmentNo){
+                if (args.departmentNo) {
                     order.summarys = summaryList
-                }else{
+                } else {
                     order.summary = summaryList
                 }
             } else {
                 order.page = parmas.page
-                
+
                 order.summary = order.summary.concat(summaryList)
             }
             let summaryHasMore = (summaryList.length == 0) ? false : true
@@ -720,21 +715,15 @@ Page({
             this.resPage()
         }
     },
-    loginBlur: function(e) {
-        let that = this
-        if (e.detail.value == '') {
-            that.setData({
-                isEmpty: e.target.id
-            })
-        }
-    },
+
     loginSi: function(e) {
         wx.clearStorage()
         let parmas = e.detail.value
         parmas.appType = "微信小程序"
         let tabBar = this.data.tabBar
         this.setData({
-            prossLogin: true
+            prossLogin: true,
+            focus:null
         })
         if (parmas.loginName == '' && parmas.loginName == '') {
             wx.showToast({
@@ -799,6 +788,14 @@ Page({
         this.setData({
             login: login,
             loginDisable: loginDisable
+        })
+    },
+    clearInput:function(e){
+        console.log(e)
+        let login = this.data.login
+        login[e.target.dataset.id] = ''
+        this.setData({
+            login:login
         })
     },
     exitSys: function() {
@@ -877,7 +874,7 @@ Page({
         this.setData({
             searchValue: "",
             cancelSearch: true,
-            showSearch:false
+            showSearch: false
         })
     },
 
@@ -899,9 +896,9 @@ Page({
     //         searchTop: searchTop
     //     })
     // },
-    toggleSearch:function(e){
+    toggleSearch: function(e) {
         this.setData({
-            showSearch:true
+            showSearch: true
         })
     },
     onReady: function() {

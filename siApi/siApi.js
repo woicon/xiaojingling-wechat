@@ -1,8 +1,7 @@
 //const API = "http://192.168.19.102:8000/ShopCashier_SI/"
 const sign = require('../libs/getSign/getSign.js')
-//const API = "http://intsi.51ebill.com/ShopCashier_SI/"
-const API = "https://shopcashiersi.liantuobank.com/ShopCashier_SI/"
-
+//const API = "http://intsi.51ebill.com/ShopCashier_SI/" //
+const API = "https://shopcashiersi.liantuobank.com/ShopCashier_SI/"  //
 function ajax(url, parmas, method) {
     const key = wx.getStorageSync("key")
     const signParmas = sign.getSign(parmas, key)
@@ -33,10 +32,10 @@ module.exports = {
     getCoupon: parmas => ajax('littleFairy/getKouBeiGoodsList.in', parmas),
     //订单 
     getOrder: parmas => ajax('littleFairy/getOrderList.in', parmas),
-    getOrdersTittleSummary: parmas => ajax('orderQuery/getOrdersTittleSummary.in', parmas),
+
     orderQuery: parmas => ajax('orderQuery/getOrderAllInfo.in', parmas),
-    //1管理员;2总经理;3财务;4店长;5收银员;6其它角色
-    //报表 查询核心或门店的总数据
+    
+    //报表 查询核心或门店的总数据   //1管理员;2总经理;3财务;4店长;5收银员;6其它角色
     multiple: parmas => ajax('statistics/multipleStatistics.in', parmas),
     //收银员报表
     cashier: parmas => ajax('statistics/cashierStatistics.in', parmas),

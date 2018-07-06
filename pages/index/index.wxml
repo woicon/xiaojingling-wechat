@@ -6,7 +6,7 @@
 <import src="../../pages/temp/order.wxml" />
 
 <block wx:if="{{isLogin}}">
-    <template is="login" data="{{prossLogin:prossLogin,focus:focus,loginDisable:loginDisable}}" />
+    <template is="login" data="{{prossLogin:prossLogin,focus:focus,loginDisable:loginDisable,login:login}}" />
 </block>
 
 <block wx:elif="{{page === 'report'}}">
@@ -25,12 +25,12 @@
 </block>
 
 <block wx:elif="{{page == 'orders'}}">
-    <template is="order" data="{{...order,orderIsBottm:orderIsBottm,orderHasMore:orderHasMore,payStatus:payStatus,isPageLoad:isPageLoad,payType:payType,isPX:isPX,payStatusSel:payStatusSel,payTypeSel:payTypeSel,orderLoading:orderLoading,cancelSearch:cancelSearch,searchValue:searchValue,searchTop:searchTop,showSearch:showSearch}}"
+    <template is="order" data="{{...order,orderIsBottm:orderIsBottm,orderHasMore:orderHasMore,payStatus:payStatus,isPageLoad:isPageLoad,payType:payType,isPX:isPX,payStatusSel:payStatusSel,payTypeSel:payTypeSel,orderLoading:orderLoading,cancelSearch:cancelSearch,searchValue:searchValue,searchTop:searchTop,showSearch:showSearch,userType:userType}}"
     />
 </block>
 
 <block wx:elif="{{page === 'member'}}">
-    <template is="member" data="{{userInfo:userInfo,member:member,isCore:isCore}}" />
+    <template is="member" data="{{userInfo:userInfo,member:member,isCore:isCore,version:version}}" />
 </block>
 
 <block wx:if="{{!isLogin}}">

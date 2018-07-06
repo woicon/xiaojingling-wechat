@@ -38,7 +38,7 @@
             <view class='phones'  hover-class='nav-touch'>
                 <view class='ico icon-about'></view>
                 <view class='m-name'>关于</view>
-                <text>v0.01</text>
+                <text>{{version}}</text>
             </view>
             <view class='exit' bindtap='exitSys'  hover-class='nav-touch'>
                 <view class='ico icon-exit'></view> 
