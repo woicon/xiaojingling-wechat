@@ -13,6 +13,7 @@
     <view class='report-head'>
         <view class='tab'>
             <view wx:for="{{['昨日','今日','其他']}}" bindtap='toggleReport' wx:key="reportTab" class='{{reportTab == index ? "active":""}}' data-index="{{index}}">{{item}}</view>
+            <view class='ico icon-more'></view>
         </view>
         <view class='datebar' bindtap='stepDate'>
             <view wx:if="{{!disPrv}}" class='ico prev' id='prev'></view>

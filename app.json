@@ -10,7 +10,8 @@
         "pages/refund/refund",
         "pages/posOk/posOk",
         "pages/desk/desk",
-        "pages/help/help"
+        "pages/help/help",
+        "pages/aes/aes"
     ],
     "window": {
         "backgroundTextStyle": "light",

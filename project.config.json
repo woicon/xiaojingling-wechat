@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -114,6 +114,11 @@
 					"name": "desk",
 					"pathName": "pages/desk/desk",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "aes",
+					"pathName": "pages/aes/aes"
 				}
 			]
 		}
