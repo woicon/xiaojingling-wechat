@@ -244,17 +244,20 @@ Page({
                 }
             })
     },
+    
     paySuccess: function (data) {
         console.log("POSDATA::::", JSON.parse(data))
         wx.redirectTo({
             url: '/pages/posOk/posOk'
         })
     },
+
     hideCoupon: function () {
         this.setData({
             showCoupon: false
         })
     },
+
     getCoupon: function (arg) {
         let that = this
         const loginData = arg

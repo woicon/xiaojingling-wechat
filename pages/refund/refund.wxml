@@ -30,7 +30,6 @@
         <view class='refamt'>
             <input type="digit" bindinput='refInput' value='{{refAmt}}' placeholder='输入退款金额'></input>
         </view>
-        <!-- {{preAmt}} -->
         <view bindtap='refundAll' class='refall' hover-class='refall-touch'>全部退款</view>
     </view>
     <view class='rmk' bindtap='selectMrk'>

@@ -5,7 +5,7 @@ Page({
     onLoad: function(options) {
         var app = getApp()
         var Dec = require('../../libs/aes/public.js'); //引用封装好的加密解密js
-        console.log("加密：：：",Dec.Encrypt("hello world"));
+        console.log("加密：：：",Dec.Encrypt("Hello world!"));
         console.log("解密：：：",Dec.Decrypt("19AF2A9A749542E97F9CAFB940D6DB6F"));
     },
 

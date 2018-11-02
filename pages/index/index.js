@@ -125,7 +125,7 @@ Page({
             focus: e.currentTarget.dataset.index
         })
     },
-    loginFocus:function(e){
+    loginFocus: function(e) {
         console.log(e)
     },
     loginBlur: function(e) {
@@ -133,7 +133,7 @@ Page({
             this.setData({
                 isEmpty: e.target.id
             })
-        }   
+        }
     },
 
     resReport: function(date) {
@@ -723,7 +723,7 @@ Page({
         let tabBar = this.data.tabBar
         this.setData({
             prossLogin: true,
-            focus:null
+            focus: null
         })
         if (parmas.loginName == '' && parmas.loginName == '') {
             wx.showToast({
@@ -790,12 +790,12 @@ Page({
             loginDisable: loginDisable
         })
     },
-    clearInput:function(e){
+    clearInput: function(e) {
         console.log(e)
         let login = this.data.login
         login[e.target.dataset.id] = ''
         this.setData({
-            login:login
+            login: login
         })
     },
     exitSys: function() {
@@ -902,6 +902,6 @@ Page({
         })
     },
     onReady: function() {
-
+        
     }
 })
